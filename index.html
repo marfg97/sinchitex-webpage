@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Sinchitex | Textiles Peruanos con Calidad y Tradición</title>
+  <!-- Google Fonts + Font Awesome -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #FEFCF5;
+      color: #1E2A2F;
+      line-height: 1.5;
+      scroll-behavior: smooth;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* Tipografía y utilidades */
+    h1, h2, h3 {
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .section {
+      padding: 5rem 0;
+    }
+
+    .section-title {
+      font-size: 2.2rem;
+      margin-bottom: 1rem;
+      color: #1F3B2C;
+      position: relative;
+      display: inline-block;
+    }
+
+    .section-title::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 4px;
+      background: #C49A6C;
+      margin-top: 0.5rem;
+      border-radius: 4px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background-color: #C49A6C;
+      color: white;
+      padding: 0.8rem 1.8rem;
+      border-radius: 40px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 2px solid #C49A6C;
+      color: #C49A6C;
+    }
+
+    .btn-outline:hover {
+      background: #C49A6C;
+      color: white;
+    }
+
+    .btn:hover {
+      background-color: #A87B4E;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    }
+
+    /* NAVBAR */
+    .navbar {
+      background-color: #FFFFFFF0;
+      backdrop-filter: blur(12px);
+      box-shadow: 0 2px 15px rgba(0,0,0,0.03);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      padding: 1rem 0;
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .logo h2 {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: #1F3B2C;
+    }
+    .logo span {
+      color: #C49A6C;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-weight: 500;
+      color: #2C3E33;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: #C49A6C;
+    }
+
+    .menu-icon {
+      display: none;
+      font-size: 1.8rem;
+      cursor: pointer;
+      color: #1F3B2C;
+    }
+
+    /* HERO */
+    .hero {
+      background: linear-gradient(120deg, #F5EFE1 0%, #FEFCF5 100%);
+      padding: 3rem 0 4rem 0;
+    }
+    .hero-grid {
+      display: flex;
+      align-items: center;
+      gap: 3rem;
+      flex-wrap: wrap;
+    }
+    .hero-content {
+      flex: 1;
+    }
+    .hero-badge {
+      display: inline-block;
+      background: #E9DDCF;
+      color: #A7612C;
+      padding: 0.3rem 1rem;
+      border-radius: 30px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+    .hero-content h1 {
+      font-size: 3.2rem;
+      line-height: 1.2;
+      margin-bottom: 1.2rem;
+      color: #1F3B2C;
+    }
+    .hero-content p {
+      font-size: 1.1rem;
+      color: #3A5245;
+      margin-bottom: 2rem;
+      max-width: 90%;
+    }
+    .hero-stats {
+      display: flex;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    .stat h3 {
+      font-size: 1.8rem;
+      color: #C49A6C;
+    }
+    .hero-image {
+      flex: 1;
+      background: url('https://placehold.co/600x500/E9DDCF/FFFFFF?text=Textil+Peruano') center/cover no-repeat;
+      border-radius: 32px;
+      min-height: 380px;
+      box-shadow: 0 25px 35px -12px rgba(0,0,0,0.15);
+      background-image: linear-gradient(135deg, #DCCFBC 0%, #BAA98E 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      color: #4E3E2E;
+      font-size: 1.4rem;
+    }
+
+    /* productos */
+    .productos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    .product-card {
+      background: white;
+      border-radius: 28px;
+      padding: 2rem 1.5rem;
+      text-align: center;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.04);
+      transition: all 0.25s ease;
+      border: 1px solid #F0E8DD;
+    }
+    .product-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 30px -12px rgba(0,0,0,0.12);
+      border-color: #E3D5C4;
+    }
+    .product-icon {
+      font-size: 3rem;
+      color: #C49A6C;
+      margin-bottom: 1rem;
+    }
+    .product-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 0.75rem;
+    }
+    .product-card p {
+      color: #5C6F64;
+    }
+
+    /* Nosotros */
+    .about-flex {
+      display: flex;
+      gap: 3rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .about-text {
+      flex: 1.2;
+    }
+    .about-text p {
+      margin-bottom: 1.2rem;
+      color: #2D3E36;
+    }
+    .about-highlight {
+      background: #E9F0EA;
+      padding: 1rem;
+      border-left: 4px solid #C49A6C;
+      font-weight: 500;
+    }
+    .about-img {
+      flex: 0.8;
+      background: #CFC2AF;
+      border-radius: 32px;
+      height: 280px;
+      background-image: url('https://placehold.co/500x400/CFC2AF/FFFFFF?text=Tradición+Textil');
+      background-size: cover;
+      background-position: center;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    }
+
+    /* contacto */
+    .contact-wrapper {
+      background: #F8F4EC;
+      border-radius: 48px;
+      padding: 2.5rem;
+      margin-top: 1rem;
+    }
+    .contact-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+    .contact-info {
+      flex: 1;
+    }
+    .contact-info i {
+      width: 40px;
+      color: #C49A6C;
+      font-size: 1.3rem;
+    }
+    .info-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.8rem;
+    }
+    .contact-form {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .contact-form input, .contact-form textarea {
+      padding: 0.9rem 1rem;
+      border-radius: 28px;
+      border: 1px solid #E2D9CE;
+      background: white;
+      font-family: inherit;
+      outline: none;
+      transition: 0.2s;
+    }
+    .contact-form input:focus, .contact-form textarea:focus {
+      border-color: #C49A6C;
+      box-shadow: 0 0 0 2px rgba(196,154,108,0.2);
+    }
+    .contact-form button {
+      align-self: flex-start;
+    }
+
+    footer {
+      background: #1E2A24;
+      color: #CCCBC5;
+      padding: 3rem 0 2rem;
+      margin-top: 2rem;
+    }
+    .footer-grid {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+    .footer-logo h3 {
+      color: white;
+      margin-bottom: 0.5rem;
+    }
+    .socials a {
+      color: #C49A6C;
+      margin-right: 1rem;
+      font-size: 1.4rem;
+      transition: 0.2s;
+    }
+    .copyright {
+      text-align: center;
+      margin-top: 2.5rem;
+      font-size: 0.85rem;
+      border-top: 1px solid #3A4A41;
+      padding-top: 1.5rem;
+    }
+
+    @media (max-width: 880px) {
+      .nav-links {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        text-align: center;
+        background: white;
+        padding: 1.5rem 0;
+        margin-top: 1rem;
+        border-radius: 28px;
+        gap: 1rem;
+      }
+      .nav-links.active {
+        display: flex;
+      }
+      .menu-icon {
+        display: block;
+      }
+      .hero-content h1 {
+        font-size: 2.3rem;
+      }
+      .section-title {
+        font-size: 1.9rem;
+      }
+      .hero-stats {
+        flex-wrap: wrap;
+      }
+      .contact-wrapper {
+        padding: 1.8rem;
+      }
+    }
+    @media (max-width: 540px) {
+      .container {
+        padding: 0 1.2rem;
+      }
+      .btn {
+        padding: 0.6rem 1.4rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navegación -->
+  <nav class="navbar">
+    <div class="container nav-container">
+      <div class="logo">
+        <h2>Sinchi<span>tex</span></h2>
+      </div>
+      <div class="menu-icon" id="menuToggle">
+        <i class="fas fa-bars"></i>
+      </div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#productos">Productos</a></li>
+        <li><a href="#nosotros">Nosotros</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero / Inicio -->
+  <section id="inicio" class="hero">
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <div class="hero-badge">✨ Hecho en Perú con tradición ✨</div>
+        <h1>Tejidos que cuentan <br>historias andinas</h1>
+        <p>En Sinchitex combinamos tecnología moderna con técnicas ancestrales para ofrecer textiles sostenibles de alta calidad. Vestimos el alma de tu marca.</p>
+        <a href="#contacto" class="btn">Solicita una cotización <i class="fas fa-arrow-right"></i></a>
+        <div class="hero-stats">
+          <div class="stat"><h3>+15 años</h3><span>de experiencia</span></div>
+          <div class="stat"><h3>98%</h3><span>clientes satisfechos</span></div>
+          <div class="stat"><h3>+200</h3><span>colecciones únicas</span></div>
+        </div>
+      </div>
+      <div class="hero-image">
+        <i class="fas fa-hand-sparkles" style="font-size: 3rem; margin-right: 0.5rem;"></i> Calidad textil
+      </div>
+    </div>
+  </section>
+
+  <!-- Productos -->
+  <section id="productos" class="section">
+    <div class="container">
+      <h2 class="section-title">Nuestros Productos Estrella</h2>
+      <p style="margin-bottom: 2rem; max-width: 700px;">Telas, hilados y confecciones pensadas para destacar en moda, decoración e industria.</p>
+      <div class="productos-grid">
+        <div class="product-card">
+          <div class="product-icon"><i class="fas fa-tshirt"></i></div>
+          <h3>Telas de Algodón Pima</h3>
+          <p>Suavidad excepcional y durabilidad. Ideal para moda premium y ropa de cama.</p>
+        </div>
+        <div class="product-card">
+          <div class="product-icon"><i class="fas fa-mountain"></i></div>
+          <h3>Textil Andino</h3>
+          <p>Lana de alpaca y mezclas exclusivas, colores naturales y calidez única.</p>
+        </div>
+        <div class="product-card">
+          <div class="product-icon"><i class="fas fa-couch"></i></div>
+          <h3>Deco & Hogar</h3>
+          <p>Tapices, cojines y mantelería con diseño contemporáneo y raíces peruanas.</p>
+        </div>
+        <div class="product-card">
+          <div class="product-icon"><i class="fas fa-industry"></i></div>
+          <h3>Tejido Técnico</h3>
+          <p>Alto rendimiento para uniformes, equipamiento y soluciones industriales.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Nosotros / Sostenibilidad y tradición -->
+  <section id="nosotros" class="section" style="background-color: #FEFBF5;">
+    <div class="container">
+      <div class="about-flex">
+        <div class="about-text">
+          <h2 class="section-title">Más que textiles, <br>herencia viva</h2>
+          <p>Sinchitex nace en el corazón de los Andes peruanos, impulsado por artesanos y diseñadores que creen en la producción ética y responsable. Desde el hilado hasta el acabado final, cada proceso honra la tierra y las comunidades locales.</p>
+          <p>Certificamos nuestros procesos con estándares sostenibles, utilizando tintes naturales y promoviendo la economía circular. Nuestro compromiso es reducir el impacto ambiental mientras entregamos telas de clase mundial.</p>
+          <div class="about-highlight">
+            <i class="fas fa-leaf" style="color: #C49A6C; margin-right: 8px;"></i> “Sostenibilidad y calidad no están reñidas: en Sinchitex son nuestra esencia.”
+          </div>
+          <a href="#contacto" class="btn btn-outline" style="margin-top: 1.5rem;">Conoce nuestro impacto</a>
+        </div>
+        <div class="about-img">
+          <!-- imagen decorativa -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contacto + formulario interactivo -->
+  <section id="contacto" class="section">
+    <div class="container">
+      <h2 class="section-title">Hablemos de tu proyecto</h2>
+      <p style="margin-bottom: 2rem;">Escríbenos y uno de nuestros asesores textiles te responderá en menos de 24 horas.</p>
+      <div class="contact-wrapper">
+        <div class="contact-grid">
+          <div class="contact-info">
+            <div class="info-item"><i class="fas fa-map-marker-alt"></i> <span>Av. Textil 123, Lima - Perú / Oficina en Cusco</span></div>
+            <div class="info-item"><i class="fas fa-phone-alt"></i> <span>+51 1 555 7890</span></div>
+            <div class="info-item"><i class="fas fa-envelope"></i> <span>ventas@sinchitex.pe</span></div>
+            <div class="info-item"><i class="fas fa-clock"></i> <span>Lun a Vie: 9am - 6pm (horario peruano)</span></div>
+            <div style="margin-top: 1.5rem;">
+              <i class="fab fa-whatsapp" style="color:#25D366; font-size: 1.8rem; margin-right: 10px;"></i>
+              <span>+51 987 654 321</span>
+            </div>
+          </div>
+          <form id="contactForm" class="contact-form">
+            <input type="text" id="nombre" placeholder="Nombre completo *" required>
+            <input type="email" id="email" placeholder="Correo electrónico *" required>
+            <input type="text" id="telefono" placeholder="Teléfono (opcional)">
+            <textarea rows="3" id="mensaje" placeholder="Cuéntanos qué tipo de tela o volumen necesitas..."></textarea>
+            <button type="submit" class="btn" id="submitBtn">Enviar mensaje <i class="fas fa-paper-plane"></i></button>
+            <div id="formFeedback" style="font-size: 0.85rem; margin-top: 0.5rem;"></div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-logo">
+          <h3>Sinchitex</h3>
+          <p>Tejidos peruanos con identidad y propósito.</p>
+        </div>
+        <div>
+          <h4 style="color: white;">Enlaces</h4>
+          <ul style="list-style: none; margin-top: 0.8rem;">
+            <li><a href="#inicio" style="color:#CBCBC2; text-decoration: none;">Inicio</a></li>
+            <li><a href="#productos" style="color:#CBCBC2; text-decoration: none;">Productos</a></li>
+            <li><a href="#nosotros" style="color:#CBCBC2; text-decoration: none;">Nosotros</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 style="color: white;">Síguenos</h4>
+          <div class="socials" style="margin-top: 0.8rem;">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="copyright">
+        <p>&copy; 2025 Sinchitex - Textiles sostenibles del Perú. Todos los derechos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Menú responsive toggle
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+
+    // Smooth scroll para enlaces internos
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        if(href === "#" || href === "") return;
+        const targetElement = document.querySelector(href);
+        if(targetElement) {
+          e.preventDefault();
+          targetElement.scrollIntoView({ behavior: 'smooth' });
+          if(navLinks.classList.contains('active')) navLinks.classList.remove('active');
+        }
+      });
+    });
+
+    // formulario de contacto simulación (frontend demo)
+    const contactForm = document.getElementById('contactForm');
+    const feedbackDiv = document.getElementById('formFeedback');
+    
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const nombre = document.getElementById('nombre').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const mensaje = document.getElementById('mensaje').value.trim();
+      const submitBtn = document.getElementById('submitBtn');
+      
+      if(!nombre || !email) {
+        feedbackDiv.innerHTML = '<span style="color:#b85c00;">❌ Por favor completa nombre y correo electrónico.</span>';
+        return;
+      }
+      if(!email.includes('@') || !email.includes('.')) {
+        feedbackDiv.innerHTML = '<span style="color:#b85c00;">❌ Ingresa un correo válido.</span>';
+        return;
+      }
+      
+      // simular envío exitoso
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = '<i class="fas fa-spinner fa-pulse"></i> Enviando...';
+      setTimeout(() => {
+        feedbackDiv.innerHTML = '<span style="color:#2C6E49;">✅ ¡Mensaje enviado! Un asesor Sinchitex te contactará pronto.</span>';
+        contactForm.reset();
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = 'Enviar mensaje <i class="fas fa-paper-plane"></i>';
+        // limpiar feedback después de 5 segundos
+        setTimeout(() => {
+          if(feedbackDiv.innerHTML.includes('¡Mensaje enviado')) feedbackDiv.innerHTML = '';
+        }, 5000);
+      }, 800);
+    });
+    
+    // efecto hover dinámico extra en cards (opcional)
+    const cards = document.querySelectorAll('.product-card');
+    cards.forEach(card => {
+      card.addEventListener('mouseenter', () => {
+        card.style.transition = 'all 0.2s';
+      });
+    });
+
+    // Mostrar alerta interactiva de bienvenida (amigable)
+    console.log("Sinchitex - Tejiendo futuro textil");
+    // pequeño detalle: Cambio de imagen de hero sin imagen externa real (uso de gradiente dinámico)
+    const heroImgDiv = document.querySelector('.hero-image');
+    if(heroImgDiv) {
+      // agregar decoración sutil
+      heroImgDiv.style.backgroundImage = 'radial-gradient(circle at 30% 40%, #E5D5BD, #CBB592)';
+      heroImgDiv.innerHTML = '<div style="text-align:center;"><i class="fas fa-hand-loom" style="font-size: 3rem; margin-bottom: 1rem; display:block;"></i>Telares sinchi<br><span style="font-size:0.9rem;">Calidad ancestral</span></div>';
+    }
+    const aboutImgDiv = document.querySelector('.about-img');
+    if(aboutImgDiv) {
+      aboutImgDiv.style.backgroundImage = 'url(\'https://placehold.co/600x400/B7A77D/FFFFFF?text=+Artesanía+Textil\')';
+      aboutImgDiv.style.backgroundSize = 'cover';
+      aboutImgDiv.style.backgroundPosition = 'center';
+      aboutImgDiv.style.opacity = '0.95';
+    }
+  </script>
+</body>
+</html>
